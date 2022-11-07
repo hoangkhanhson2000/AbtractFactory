@@ -2,7 +2,7 @@ package design.pattern.AbtractFactory.factory.computer;
 
 import design.pattern.AbtractFactory.factory.BaseAccessoriesFactory;
 
-public class Laptop extends Computer {
+public class Laptop implements Computer {
     BaseAccessoriesFactory accessoriesFactory;
 
     public Laptop(BaseAccessoriesFactory accessoriesFactory) {
