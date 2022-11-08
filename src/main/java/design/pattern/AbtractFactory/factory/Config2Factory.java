@@ -10,17 +10,11 @@ public class Config2Factory extends BaseComputerFactory {
     public Computer createComputer(String type) {
         Computer computer;
         BaseAccessoriesFactory accessoriesFactory = new Config2AccessoriesFactory();
-        switch (type.toLowerCase()) {
-            case "laptop":
-                computer = new Laptop(accessoriesFactory);
-                break;
-            case "pc":
-                computer = new PC(accessoriesFactory);
-                break;
-
-            default:
-                throw new IllegalArgumentException("No such computer.");
-        }
+        computer = switch (type.toLowerCase()) {
+            case "laptop" -> new Laptop(accessoriesFactory);
+            case "pc" -> new PC(accessoriesFactory);
+            default -> throw new IllegalArgumentException("No such computer.");
+        };
 
         computer.addComputerAccessories();
         computer.buildComputer();

@@ -18,4 +18,9 @@ public class PC implements Computer {
         accessoriesFactory.createSDD();
 
     }
+
+    @Override
+    public void buildComputer() {
+        System.out.println("Personal Computer1 is built");
+    }
 }

@@ -18,14 +18,13 @@ public class AbtractFactoryApplication {
 
         SpringApplication.run(AbtractFactoryApplication.class, args);
         BaseComputerFactory computerFactory = new Config1Factory();
+        BaseComputerFactory computerFactory1 = new Config2Factory();
 
         BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-        Computer laptop = computerFactory.createComputer("laptop");
-        System.out.println("_______________________________________");
-
-        BaseComputerFactory computerFactory1 = new Config2Factory();
-        Computer pc = computerFactory1.createComputer("pc");
-        System.out.println("_______________________________________");
+//        Computer laptop = computerFactory.createComputer("laptop");
+//        System.out.println("_______________________________________");
+//        Computer pc = computerFactory1.createComputer("pc");
+//        System.out.println("_______________________________________");
 
         String type = "";
 
@@ -41,17 +40,16 @@ public class AbtractFactoryApplication {
             System.out.println("Error!");
         }
         switch (a) {
-            case "1":
-
-                System.out.println("Please Enter Your Type:");
+            case "1" -> {
+                System.out.println("Please Enter Your Type:(laptop/pc)");
                 try {
                     type = dataIn.readLine();
                 } catch (IOException e) {
                     System.out.println("Error!");
                 }
                 Computer cp = computerFactory1.createComputer(type);
-                break;
-            case "2":
+            }
+            case "2" -> {
                 System.out.println("Please Enter Your Type:(laptop/pc)");
                 try {
                     type = dataIn.readLine();
@@ -59,10 +57,8 @@ public class AbtractFactoryApplication {
                     System.out.println("Error!");
                 }
                 Computer cp1 = computerFactory.createComputer(type);
-                break;
-            default:
-                throw new IllegalArgumentException("No selection.");
-
+            }
+            default -> throw new IllegalArgumentException("No selection.");
         }
     }
 

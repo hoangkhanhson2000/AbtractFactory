@@ -19,4 +19,9 @@ public class Laptop implements Computer {
 
 
     }
+
+    @Override
+    public void buildComputer() {
+        System.out.println("Laptop is built");
+    }
 }
